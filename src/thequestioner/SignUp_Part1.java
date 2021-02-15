@@ -1,0 +1,1221 @@
+/* 
+ * The MIT License
+ *
+ * Copyright 2021 Md Ausaf Rashid.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package thequestioner;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+import javax.swing.SwingWorker;
+import javax.swing.border.LineBorder;
+import javax.swing.plaf.basic.BasicComboPopup;
+
+
+import static thequestioner.Credential_Storage.db_initialised;
+
+/**
+ *
+ * @author Md Ausaf Rashid
+ */
+
+public class SignUp_Part1 extends javax.swing.JFrame {
+
+   
+            
+    int xMouse;
+    int yMouse;
+    
+    public static boolean signuppart1visible=false;
+    
+    Color white=new Color(204,204,204);
+    
+    /**
+     * Creates new form SignUp_Part1
+     */
+    
+    public boolean finalVerify(){
+    boolean b = false;
+       
+        if(signuppart1visible){
+            this.setVisible(true);
+            signuppart1visible=false;
+        }
+    if(NameCheck&&GenderCheck&&NationalityCheck&&DayCheck&&MonthCheck&&YearCheck&&ComplexDateCheck)
+        b=true;
+    else
+        b=false;
+    
+    if(b){
+        
+        nextlabel.setVisible(true);
+    
+    }
+    else
+        nextlabel.setVisible(false);
+    
+        return b;
+   
+}
+    
+   
+    
+    boolean initialClickedNameInput=false;
+    boolean NameCheck=false;
+    
+    boolean initialClickedGenderInput=false;
+    boolean GenderCheck=false;
+    
+    boolean initialClickedNationalityInput=false;
+    boolean NationalityCheck=false;
+    
+    boolean initialClickedDayInput=false;
+    boolean DayCheck=false;
+    
+    boolean initialClickedMonthInput=false;
+    boolean MonthCheck=false;
+    
+    boolean initialClickedYearInput=false;
+    boolean YearCheck=false;
+    
+    boolean ComplexDateCheck=false;
+    
+   
+    
+    
+    public SignUp_Part1() {
+        
+       initComponents();
+        
+           if(db_initialised){
+            //Database is already initialized, no need to run initializer class
+            }else{
+               new Initializer();
+           
+           }
+       
+       
+       new Worker().execute(); //Background task to run finalVerify() started. 
+                               //Final verify checks if all fields are filled correctly and displays next button
+
+        setBackground(new Color(0,0,0,0));//makes jframe background invisible. 
+                                    
+                
+
+        //Bunch of methods to set initial texts in all comboboxes to Choose, dd, mm,etc
+        //to set popup background to black and foreground to white in default
+        //and when mouse hovered: Background to green and foreground to black
+        colorizeGenderChooserComboBox();
+        colorizeDateChooserComboBox();
+        colorizeMonthChooserComboBox();
+        colorizeYearChooserComboBox();
+        colorizeNationalityChooserComboBox(); 
+        
+        
+        //set white color to all comboboxes popups border, initially
+        setBorderColorOfComboBoxPopup(GenderChooserComboBox, white);
+        setBorderColorOfComboBoxPopup(DayChooserComboBox, white);
+        setBorderColorOfComboBoxPopup(MonthChooserComboBox, white);
+        setBorderColorOfComboBoxPopup(YearChooserComboBox, white);
+        setBorderColorOfComboBoxPopup(NationalityChooserComboBox, white);
+        
+        
+        //make the next label invisible until everything has been verfified by final verify
+        //refer line 92 for final verify function
+        nextlabel.setVisible(false);
+        
+    
+    
+    }
+    
+ 
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        Greeting_Label = new javax.swing.JLabel();
+        l7 = new javax.swing.JLabel();
+        MinLabel = new javax.swing.JLabel();
+        ExitLabel = new javax.swing.JLabel();
+        nextlabel = new javax.swing.JLabel();
+        YearChooserComboBox = new javax.swing.JComboBox<>();
+        MonthChooserComboBox = new javax.swing.JComboBox<>();
+        DayChooserComboBox = new javax.swing.JComboBox<>();
+        l4 = new javax.swing.JLabel();
+        NameWarning = new javax.swing.JLabel();
+        l6 = new javax.swing.JLabel();
+        GenderWarning = new javax.swing.JLabel();
+        NameInput = new javax.swing.JTextField();
+        l5 = new javax.swing.JLabel();
+        NationalityWarning = new javax.swing.JLabel();
+        DOBWarning = new javax.swing.JLabel();
+        NationalityChooserComboBox = new javax.swing.JComboBox<>();
+        l3 = new javax.swing.JLabel();
+        GenderChooserComboBox = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(895, 645));
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeiconified(java.awt.event.WindowEvent evt) {
+                formWindowDeiconified(evt);
+            }
+        });
+        getContentPane().setLayout(null);
+
+        Greeting_Label.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
+        Greeting_Label.setForeground(new java.awt.Color(0, 0, 255));
+        Greeting_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Greeting_Label.setText("<html> <u>Sign In</u> </html>");
+        Greeting_Label.setToolTipText("");
+        Greeting_Label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Greeting_Label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Greeting_LabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(Greeting_Label);
+        Greeting_Label.setBounds(715, 87, 180, 23);
+
+        l7.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        l7.setForeground(new java.awt.Color(255, 255, 255));
+        l7.setText("Enter your details to sign up:");
+        getContentPane().add(l7);
+        l7.setBounds(40, 150, 290, 50);
+
+        MinLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MinLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/minbutton.png"))); // NOI18N
+        MinLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MinLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MinLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MinLabelMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MinLabelMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                MinLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(MinLabel);
+        MinLabel.setBounds(845, 5, 20, 20);
+
+        ExitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ExitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/exitbutton.png"))); // NOI18N
+        ExitLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ExitLabelMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(ExitLabel);
+        ExitLabel.setBounds(865, 5, 20, 20);
+
+        nextlabel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        nextlabel.setForeground(Color.blue);
+        nextlabel.setText("<html> <body> <u>Next>></u> </body> </html>");
+        nextlabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                nextlabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(nextlabel);
+        nextlabel.setBounds(340, 410, 60, 30);
+
+        YearChooserComboBox.setBackground(new Color(0,0,0,0));
+        YearChooserComboBox.setForeground(white);
+        YearChooserComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014" }));
+        YearChooserComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        YearChooserComboBox.setMaximumSize(new java.awt.Dimension(197, 20));
+        YearChooserComboBox.setMinimumSize(new java.awt.Dimension(197, 20));
+        YearChooserComboBox.setOpaque(false);
+        YearChooserComboBox.setPreferredSize(new java.awt.Dimension(197, 20));
+        YearChooserComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                YearChooserComboBoxItemStateChanged(evt);
+            }
+        });
+        YearChooserComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                YearChooserComboBoxFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                YearChooserComboBoxFocusLost(evt);
+            }
+        });
+        getContentPane().add(YearChooserComboBox);
+        YearChooserComboBox.setBounds(300, 310, 77, 30);
+        YearChooserComboBox.setName("YearChooserComboBox");
+
+        MonthChooserComboBox.setBackground(new Color(0,0,0,0));
+        MonthChooserComboBox.setForeground(white);
+        MonthChooserComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" }));
+        MonthChooserComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        MonthChooserComboBox.setMaximumSize(new java.awt.Dimension(197, 20));
+        MonthChooserComboBox.setMinimumSize(new java.awt.Dimension(197, 20));
+        MonthChooserComboBox.setOpaque(false);
+        MonthChooserComboBox.setPreferredSize(new java.awt.Dimension(197, 20));
+        MonthChooserComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                MonthChooserComboBoxItemStateChanged(evt);
+            }
+        });
+        MonthChooserComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                MonthChooserComboBoxFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MonthChooserComboBoxFocusLost(evt);
+            }
+        });
+        getContentPane().add(MonthChooserComboBox);
+        MonthChooserComboBox.setBounds(235, 310, 60, 30);
+        MonthChooserComboBox.setName("MonthChooserComboBox");
+
+        DayChooserComboBox.setBackground(new Color(0,0,0,0));
+        DayChooserComboBox.setForeground(white);
+        DayChooserComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        DayChooserComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        DayChooserComboBox.setMaximumSize(new java.awt.Dimension(197, 20));
+        DayChooserComboBox.setMinimumSize(new java.awt.Dimension(197, 20));
+        DayChooserComboBox.setOpaque(false);
+        DayChooserComboBox.setPreferredSize(new java.awt.Dimension(197, 20));
+        DayChooserComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                DayChooserComboBoxItemStateChanged(evt);
+            }
+        });
+        DayChooserComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                DayChooserComboBoxFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DayChooserComboBoxFocusLost(evt);
+            }
+        });
+        getContentPane().add(DayChooserComboBox);
+        DayChooserComboBox.setBounds(180, 310, 50, 30);
+        DayChooserComboBox.setName("DayChooserComboBox");
+
+        l4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        l4.setForeground(white);
+        l4.setText("Gender:");
+        getContentPane().add(l4);
+        l4.setBounds(30, 260, 70, 30);
+
+        NameWarning.setForeground(new java.awt.Color(255, 255, 255));
+        NameWarning.setText(" ");
+        NameWarning.setMaximumSize(new java.awt.Dimension(197, 14));
+        NameWarning.setMinimumSize(new java.awt.Dimension(197, 14));
+        NameWarning.setPreferredSize(new java.awt.Dimension(197, 14));
+        getContentPane().add(NameWarning);
+        NameWarning.setBounds(180, 240, 197, 14);
+
+        l6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        l6.setForeground(white);
+        l6.setText("Nationality:");
+        getContentPane().add(l6);
+        l6.setBounds(30, 360, 90, 30);
+
+        GenderWarning.setForeground(new java.awt.Color(255, 255, 255));
+        GenderWarning.setText(" ");
+        GenderWarning.setMaximumSize(new java.awt.Dimension(197, 14));
+        GenderWarning.setMinimumSize(new java.awt.Dimension(197, 14));
+        GenderWarning.setPreferredSize(new java.awt.Dimension(197, 14));
+        getContentPane().add(GenderWarning);
+        GenderWarning.setBounds(180, 290, 197, 14);
+
+        NameInput.setBackground((new Color(0,0,0,0)));
+        NameInput.setForeground(white);
+        NameInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        NameInput.setText("Your name goes here.");
+        NameInput.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        NameInput.setMaximumSize(new java.awt.Dimension(197, 20));
+        NameInput.setMinimumSize(new java.awt.Dimension(197, 20));
+        NameInput.setOpaque(false);
+        NameInput.setPreferredSize(new java.awt.Dimension(197, 20));
+        NameInput.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                NameInputCaretUpdate(evt);
+            }
+        });
+        NameInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NameInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                NameInputFocusLost(evt);
+            }
+        });
+        getContentPane().add(NameInput);
+        NameInput.setBounds(180, 210, 197, 30);
+
+        l5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        l5.setForeground(white);
+        l5.setText("Date Of Birth:");
+        getContentPane().add(l5);
+        l5.setBounds(30, 310, 110, 30);
+
+        NationalityWarning.setForeground(new java.awt.Color(255, 255, 255));
+        NationalityWarning.setText(" ");
+        NationalityWarning.setMaximumSize(new java.awt.Dimension(197, 14));
+        NationalityWarning.setMinimumSize(new java.awt.Dimension(197, 14));
+        NationalityWarning.setPreferredSize(new java.awt.Dimension(197, 14));
+        getContentPane().add(NationalityWarning);
+        NationalityWarning.setBounds(180, 390, 197, 14);
+
+        DOBWarning.setForeground(new java.awt.Color(255, 255, 255));
+        DOBWarning.setText(" ");
+        DOBWarning.setMaximumSize(new java.awt.Dimension(197, 14));
+        DOBWarning.setMinimumSize(new java.awt.Dimension(197, 14));
+        DOBWarning.setPreferredSize(new java.awt.Dimension(197, 14));
+        getContentPane().add(DOBWarning);
+        DOBWarning.setBounds(180, 340, 197, 14);
+
+        NationalityChooserComboBox.setBackground(new Color(0,0,0,0));
+        NationalityChooserComboBox.setForeground(white);
+        NationalityChooserComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic (CAR)", "Chad", "Chile", "China", "Colombia", "Comoros", "Democratic Republic of the Congo", "Republic of the Congo", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia (FYROM)", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates (UAE)", "United Kingdom (UK)", "United States of America (USA)", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City (Holy See)", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
+        NationalityChooserComboBox.setSelectedIndex(0);
+        NationalityChooserComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        NationalityChooserComboBox.setMaximumSize(new java.awt.Dimension(197, 20));
+        NationalityChooserComboBox.setMinimumSize(new java.awt.Dimension(197, 20));
+        NationalityChooserComboBox.setOpaque(false);
+        NationalityChooserComboBox.setPreferredSize(new java.awt.Dimension(197, 20));
+        NationalityChooserComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                NationalityChooserComboBoxItemStateChanged(evt);
+            }
+        });
+        NationalityChooserComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NationalityChooserComboBoxFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                NationalityChooserComboBoxFocusLost(evt);
+            }
+        });
+        getContentPane().add(NationalityChooserComboBox);
+        NationalityChooserComboBox.setBounds(180, 360, 197, 30);
+
+        l3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        l3.setForeground(white);
+        l3.setText("Name:");
+        getContentPane().add(l3);
+        l3.setBounds(30, 210, 60, 30);
+
+        GenderChooserComboBox.setBackground(new Color(0,0,0,0));
+        GenderChooserComboBox.setForeground(white);
+        GenderChooserComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male ", "Female", "Other" }));
+        GenderChooserComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        GenderChooserComboBox.setMaximumSize(new java.awt.Dimension(197, 20));
+        GenderChooserComboBox.setMinimumSize(new java.awt.Dimension(197, 20));
+        GenderChooserComboBox.setOpaque(false);
+        GenderChooserComboBox.setPreferredSize(new java.awt.Dimension(197, 20));
+        GenderChooserComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                GenderChooserComboBoxItemStateChanged(evt);
+            }
+        });
+        GenderChooserComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                GenderChooserComboBoxFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                GenderChooserComboBoxFocusLost(evt);
+            }
+        });
+        getContentPane().add(GenderChooserComboBox);
+        GenderChooserComboBox.setBounds(180, 260, 197, 30);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/imageedit_3_7186155792.gif"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(380, 120, 520, 410);
+
+        jLabel1.setBackground((new Color(0,0,0,0)));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/final_background.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(895, 645));
+        jLabel1.setMinimumSize(new java.awt.Dimension(895, 645));
+        jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(895, 645));
+        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel1MouseDragged(evt);
+            }
+        });
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 895, 645);
+
+        setSize(new java.awt.Dimension(895, 645));
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
+        this.setLocation(evt.getXOnScreen() - xMouse, evt.getYOnScreen() - yMouse);           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseDragged
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        xMouse = evt.getX();        // TODO add your handling code here:
+        yMouse = evt.getY();         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void NameInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NameInputFocusLost
+       
+       initialClickedNameInput=true; //boolean variable to show that user has clicked on that component atleast once     
+       NameCheck=checkNameEnteredIsLegalAndShowWarning();  
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameInputFocusLost
+
+    private void NameInputCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_NameInputCaretUpdate
+        if(initialClickedNameInput){            
+                NameCheck=checkNameEnteredIsLegalAndShowWarning();
+        }else{
+                NameCheck=checkNameEnteredIsLegal();
+        }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameInputCaretUpdate
+
+    private void GenderChooserComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_GenderChooserComboBoxItemStateChanged
+
+        if(initialClickedGenderInput){
+            if(GenderChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(GenderWarning,Color.RED,"Invalid Choice",GenderChooserComboBox);
+                GenderCheck=false;
+            }else{
+                showLabelWarning(GenderWarning,new Color(0,255,1,255),"",GenderChooserComboBox);
+                GenderCheck=true;
+                
+            }
+            
+        }else{
+             if(GenderChooserComboBox.getSelectedItem()==null)
+                  GenderCheck=false;
+             else
+                 GenderCheck=true;
+            
+            
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_GenderChooserComboBoxItemStateChanged
+
+    private void GenderChooserComboBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GenderChooserComboBoxFocusGained
+        initialClickedGenderInput=true;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenderChooserComboBoxFocusGained
+
+    private void GenderChooserComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GenderChooserComboBoxFocusLost
+if(GenderChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(GenderWarning,Color.RED,"Invalid Choice",GenderChooserComboBox);
+                GenderCheck=false;
+            }else{
+                showLabelWarning(GenderWarning,new Color(0,255,1,255),"",GenderChooserComboBox);
+                GenderCheck=true;
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_GenderChooserComboBoxFocusLost
+
+    private void NationalityChooserComboBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NationalityChooserComboBoxFocusGained
+        
+        initialClickedNationalityInput=true;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NationalityChooserComboBoxFocusGained
+
+    private void NationalityChooserComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NationalityChooserComboBoxFocusLost
+if(NationalityChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(NationalityWarning,Color.RED,"Invalid Choice",NationalityChooserComboBox);
+                NationalityCheck=false;
+            }else{
+                showLabelWarning(NationalityWarning,new Color(0,255,1,255),"",NationalityChooserComboBox);
+                NationalityCheck=true;
+            }           // TODO add your handling code here:
+    }//GEN-LAST:event_NationalityChooserComboBoxFocusLost
+
+    private void NationalityChooserComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NationalityChooserComboBoxItemStateChanged
+if(initialClickedNationalityInput){
+            if(NationalityChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(NationalityWarning,Color.RED,"Invalid Choice",NationalityChooserComboBox);
+                NationalityCheck=false;
+            }else{
+                showLabelWarning(NationalityWarning,new Color(0,255,1,255),"",NationalityChooserComboBox);
+                NationalityCheck=true;
+            }
+            
+        }else{
+             if(NationalityChooserComboBox.getSelectedItem()==null)
+                  NationalityCheck=false;
+             else
+                 NationalityCheck=true;
+            
+            
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_NationalityChooserComboBoxItemStateChanged
+
+    private void DayChooserComboBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DayChooserComboBoxFocusGained
+initialClickedDayInput=true;        // TODO add your handling code here:
+    }//GEN-LAST:event_DayChooserComboBoxFocusGained
+
+    private void NameInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NameInputFocusGained
+
+        if(initialClickedNameInput==false){
+            NameInput.setText("");
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameInputFocusGained
+
+    private void DayChooserComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DayChooserComboBoxFocusLost
+            
+        
+            if(DayChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(DOBWarning,Color.RED,"Invalid Choice",DayChooserComboBox);
+                DayCheck=false;
+            }else{
+            
+                    showLabelWarning(DOBWarning,new Color(0,255,1,255),"",DayChooserComboBox);
+                
+            dateVerifier();
+                DayCheck=true;
+            }         // TODO add your handling code here:
+    }//GEN-LAST:event_DayChooserComboBoxFocusLost
+
+    private void DayChooserComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_DayChooserComboBoxItemStateChanged
+if(initialClickedDayInput){
+            if(DayChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(DOBWarning,Color.RED,"Invalid Choice",DayChooserComboBox);
+                DayCheck=false;
+            }else{
+                 
+                showLabelWarning(DOBWarning,new Color(0,255,1,255),"",DayChooserComboBox);
+                dateVerifier();
+                DayCheck=true;
+                
+            }
+            
+        }else{
+             if(DayChooserComboBox.getSelectedItem()==null)
+                  DayCheck=false;
+             else
+                 DayCheck=true;
+            
+            
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_DayChooserComboBoxItemStateChanged
+
+    private void MonthChooserComboBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MonthChooserComboBoxFocusGained
+initialClickedMonthInput=true;        // TODO add your handling code here:
+    }//GEN-LAST:event_MonthChooserComboBoxFocusGained
+
+    private void MonthChooserComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MonthChooserComboBoxFocusLost
+if(MonthChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(DOBWarning,Color.RED,"Invalid Choice",MonthChooserComboBox);
+                MonthCheck=false;
+            }else{
+    
+                showLabelWarning(DOBWarning,new Color(0,255,1,255),"",MonthChooserComboBox);
+                dateVerifier();
+                MonthCheck=true;
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_MonthChooserComboBoxFocusLost
+
+    private void MonthChooserComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MonthChooserComboBoxItemStateChanged
+if(initialClickedMonthInput){
+            if(MonthChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(DOBWarning,Color.RED,"Invalid Choice",MonthChooserComboBox);
+                MonthCheck=false;
+            }else{
+                
+                showLabelWarning(DOBWarning,new Color(0,255,1,255),"",MonthChooserComboBox);
+                dateVerifier();
+                MonthCheck=true;
+                
+            }
+            
+        }else{
+             if(MonthChooserComboBox.getSelectedItem()==null)
+                  MonthCheck=false;
+             else
+                 MonthCheck=true;
+            
+            
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_MonthChooserComboBoxItemStateChanged
+
+    private void YearChooserComboBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_YearChooserComboBoxFocusGained
+initialClickedYearInput=true;        // TODO add your handling code here:
+    }//GEN-LAST:event_YearChooserComboBoxFocusGained
+
+    private void YearChooserComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_YearChooserComboBoxFocusLost
+if(YearChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(DOBWarning,Color.RED,"Invalid Choice",YearChooserComboBox);
+                YearCheck=false;
+            }else{
+   
+                showLabelWarning(DOBWarning,new Color(0,255,1,255),"",YearChooserComboBox);
+                dateVerifier();
+                YearCheck=true;
+            }         // TODO add your handling code here:
+    }//GEN-LAST:event_YearChooserComboBoxFocusLost
+
+    private void YearChooserComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_YearChooserComboBoxItemStateChanged
+ if(initialClickedYearInput){
+            if(YearChooserComboBox.getSelectedItem()==null){
+                showLabelWarning(DOBWarning,Color.RED,"Invalid Choice",YearChooserComboBox);
+                YearCheck=false;
+            }else{
+              
+                    showLabelWarning(DOBWarning,new Color(0,255,1,255),"",YearChooserComboBox);
+                dateVerifier();
+                YearCheck=true;
+                
+            }
+            
+        }else{
+             if(YearChooserComboBox.getSelectedItem()==null)
+                  YearCheck=false;
+             else
+                 YearCheck=true;
+            
+            
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_YearChooserComboBoxItemStateChanged
+
+    private void ExitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseClicked
+      
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseClicked
+
+    private void MinLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseClicked
+           // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseClicked
+
+    private void formWindowDeiconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeiconified
+         FadeUtilityClass.fade(this, true);         // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowDeiconified
+
+    private void ExitLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseEntered
+        
+        ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exit_green.gif"));
+        ExitLabel.setIcon(II);
+            // TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseEntered
+
+    private void ExitLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseExited
+ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exitbutton.png"));
+        ExitLabel.setIcon(II);       
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseExited
+
+    private void ExitLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMousePressed
+              ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exit_darker_green.gif"));
+        ExitLabel.setIcon(II);  // TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMousePressed
+
+    private void ExitLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseReleased
+       ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exit_green.gif"));
+        ExitLabel.setIcon(II);
+        System.exit(0);
+// TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseReleased
+
+    
+    
+    
+    
+    private void MinLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseEntered
+       ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/min_green.gif"));
+        MinLabel.setIcon(II); // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseEntered
+
+    private void MinLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseExited
+  ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/minbutton.png"));
+        MinLabel.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseExited
+
+    private void MinLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMousePressed
+      ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/min_darker_green.gif"));
+        MinLabel.setIcon(II);  // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMousePressed
+
+    private void MinLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseReleased
+       ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/min_green.gif"));
+        MinLabel.setIcon(II); 
+ FadeUtilityClass.fade(this, false); 
+// TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseReleased
+public static String name;
+public static String gender;
+public static String DOB;
+public static String nationality;
+
+
+    private void nextlabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextlabelMouseReleased
+       
+        
+        name=NameInput.getText();
+        gender=(String)GenderChooserComboBox.getSelectedItem();
+        DOB=(String)YearChooserComboBox.getSelectedItem()
+                + "-"+(MonthChooserComboBox.getSelectedIndex()+1)
+                + "-"+(String)DayChooserComboBox.getSelectedItem();
+        nationality=(String)NationalityChooserComboBox.getSelectedItem();
+        
+//        this.setVisible(false);
+    this.dispose();
+        SignUp_Part2 obj = new SignUp_Part2();
+        obj.setVisible(true);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_nextlabelMouseReleased
+
+
+    private void Greeting_LabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Greeting_LabelMouseReleased
+
+        SignIn obj =new SignIn();
+        obj.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Greeting_LabelMouseReleased
+public void makeSignUp1Visible(boolean choice){
+    this.setVisible(choice);
+};
+ 
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        
+        
+        
+        
+        
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+      
+        java.awt.EventQueue.invokeLater(new Runnable() {
+             
+            public void run() {
+              
+               new SignUp_Part1().setVisible(true);
+                
+            }
+            
+            
+        });
+
+        
+
+   
+
+   
+       
+
+    }
+    
+  
+ 
+  
+
+    
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DOBWarning;
+    private javax.swing.JComboBox<String> DayChooserComboBox;
+    private javax.swing.JLabel ExitLabel;
+    private javax.swing.JComboBox<String> GenderChooserComboBox;
+    private javax.swing.JLabel GenderWarning;
+    private javax.swing.JLabel Greeting_Label;
+    private javax.swing.JLabel MinLabel;
+    private javax.swing.JComboBox<String> MonthChooserComboBox;
+    private javax.swing.JTextField NameInput;
+    private javax.swing.JLabel NameWarning;
+    private javax.swing.JComboBox<String> NationalityChooserComboBox;
+    private javax.swing.JLabel NationalityWarning;
+    private javax.swing.JComboBox<String> YearChooserComboBox;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel l3;
+    private javax.swing.JLabel l4;
+    private javax.swing.JLabel l5;
+    private javax.swing.JLabel l6;
+    private javax.swing.JLabel l7;
+    private javax.swing.JLabel nextlabel;
+    // End of variables declaration//GEN-END:variables
+
+
+public void colorizeGenderChooserComboBox() {
+        try{
+        
+            GenderChooserComboBox.setRenderer(new Colorizer<String>("Choose.."));
+        GenderChooserComboBox.setSelectedIndex(-1); 
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }    
+public void colorizeDateChooserComboBox() {
+        try{
+        
+            DayChooserComboBox.setRenderer(new Colorizer<String>("DD"));
+            DayChooserComboBox.setSelectedIndex(-1);
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    } 
+public void colorizeMonthChooserComboBox() {
+        try{
+        
+            MonthChooserComboBox.setRenderer(new Colorizer<String>("MMM"));
+            MonthChooserComboBox.setSelectedIndex(-1);
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+public void colorizeYearChooserComboBox() {
+        try{
+        
+            YearChooserComboBox.setRenderer(new Colorizer<String>("YYYY"));
+            YearChooserComboBox.setSelectedIndex(-1);
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }  
+public void colorizeNationalityChooserComboBox() {
+        try{
+        
+            NationalityChooserComboBox.setRenderer(new Colorizer<String>("Choose"));
+            NationalityChooserComboBox.setSelectedIndex(-1);
+        
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+    } 
+
+class Colorizer<String> extends JLabel implements ListCellRenderer {
+private String _title;
+
+      
+
+        public Colorizer(String title) {
+            super();
+            setOpaque(true);
+            _title = title;
+        }
+
+        @Override
+        public Component getListCellRendererComponent(JList list, Object value,
+            int index, boolean isSelected, boolean cellHasFocus) {
+
+   
+            
+            setBorder(null);
+            
+            
+                setForeground(white);
+            
+            setBackground(Color.BLACK);
+
+  if (isSelected) {
+                setBackground(Color.GREEN);
+                setForeground(Color.BLACK);
+            }
+
+  
+      if (index == -1 && value == null) setText(""+_title);
+            else setText(value.toString());
+            return this;
+        }
+        
+      
+    } 
+
+
+public void setBorderColorOfComboBoxPopup(JComboBox<String> comboBox, Color color){
+    Object child = comboBox.getAccessibleContext().getAccessibleChild(0);
+    BasicComboPopup popup = (BasicComboPopup) child;
+    popup.setBorder(new LineBorder(color));
+}
+     
+public boolean checkNameEnteredIsLegalAndShowWarning(){
+
+    boolean result;
+    int NameLength=NameInput.getText().length();
+    
+    if(NameLength<3){
+        showLabelWarning(NameWarning, Color.RED, "Name is too short.",NameInput);
+        result=false;
+    }else if(NameLength>30){
+        showLabelWarning(NameWarning, Color.RED, "Name is too long.", NameInput);
+        result=false;
+    }else{
+        
+        showLabelWarning(NameWarning, new Color(0,255,1,255),"",NameInput);
+        result=true;
+    }
+    
+    return result;
+}
+
+public boolean checkNameEnteredIsLegal(){
+
+    boolean result;
+    int NameLength=NameInput.getText().length();
+    
+    if(NameLength<3){
+       result=false;
+       NameInput.setBorder(BorderFactory.createLineBorder(white));
+    }else if(NameLength>30){
+        result=false;
+        showLabelWarning(NameWarning, Color.RED, "Name is too long.",NameInput);
+    }else{
+        
+         showLabelWarning(NameWarning, new Color(0,255,1,255),"",NameInput);
+        result=true;
+    }
+    
+    return result;
+}
+
+public void showLabelWarning(JLabel label, Color color, String message, JTextField textfield){
+    label.setText(message);
+      label.setForeground(color);
+    textfield.setBorder(BorderFactory.createLineBorder(color));
+
+}
+
+public void showLabelWarning(JLabel label, Color color, String message, JComboBox jcombobox){
+    
+    label.setText(message);
+    label.setForeground(color);
+    jcombobox.setBorder(BorderFactory.createLineBorder(color));
+      setBorderColorOfComboBoxPopup(jcombobox, color);
+    
+    
+}
+public void showLabelWarning( Color color,  JComboBox jcombobox){
+    
+    jcombobox.setBorder(BorderFactory.createLineBorder(color));   
+    
+}
+
+public void showLabelWarning(JLabel label, Color color, String message){
+    label.setText(message);
+    label.setForeground(color);
+}
+
+public void dateVerifier(){
+    
+if(initialClickedDayInput&&initialClickedMonthInput&&initialClickedYearInput){    
+    if(DayChooserComboBox.getSelectedItem()==null || MonthChooserComboBox.getSelectedItem()==null || YearChooserComboBox.getSelectedItem()==null){
+        showLabelWarning(DOBWarning, Color.RED, "Invalid Choice");
+    }else{
+        showLabelWarning(DOBWarning, Color.GREEN, "");
+    }
+}   
+    int day;
+    String month;
+    int monthNo;
+    int year;
+    
+    try{
+    day=Integer.parseInt((String)DayChooserComboBox.getSelectedItem());
+    }catch(Exception e){day=1;}
+    
+    try{
+    month=(String)MonthChooserComboBox.getSelectedItem();
+    if(month==null)
+        month="Jan";
+    }catch(Exception e){month="Jan";}
+    
+    try{
+    monthNo=(int)MonthChooserComboBox.getSelectedIndex();
+    monthNo++;
+    if(monthNo==0)
+        monthNo=1;
+    }catch(Exception e){monthNo=1;}
+    
+    try{
+    year=Integer.parseInt((String)YearChooserComboBox.getSelectedItem());
+    }catch(Exception e){year=2000;}
+    
+    
+    
+    
+    boolean illegalDate=false;
+    
+    boolean canItbe31;
+    
+    if(monthNo<=7){
+    
+        if(isOdd(monthNo))
+            canItbe31=true;
+        else
+            canItbe31=false;
+        
+    }else{
+        if(isOdd(monthNo))
+            canItbe31=false;
+        else
+            canItbe31=true;
+    }
+    
+    if((!canItbe31)&&day==31)
+        illegalDate=true;
+ 
+    if((!isLeapYear(year))&&"Feb".equals(month)&&day==29)
+        illegalDate=true;
+    
+    if("Feb".equals(month)&&day>29)
+        illegalDate=true;
+        
+    
+    if(illegalDate){
+        showLabelWarning(DOBWarning, Color.RED, "Are you kidding me?",DayChooserComboBox);
+        ComplexDateCheck=false;
+    }else{
+        
+        if(DayCheck)
+            showLabelWarning(Color.GREEN, DayChooserComboBox);
+            
+        ComplexDateCheck=true;
+    }
+           
+}
+public boolean isOdd(int a){
+    boolean b;
+    if(a%2==0)
+        b=false;
+    else
+        b=true;
+    
+    return b;
+}
+public boolean isLeapYear(int year){
+    boolean b;
+    
+    if(year%100==0){
+        if(year%400==0)
+            b=true;
+        else
+            b=false;
+    }else{
+        if(year%4==0)
+            b=true;
+        else
+            b=false;
+    }
+
+    return b;
+}
+
+public class Worker extends SwingWorker<String, String> {
+
+    @Override
+    protected String doInBackground() throws Exception {
+        //This is what's called in the .execute method
+        for(int i = 0; true; ){
+            //This sends the results to the .process method
+      publish(String.valueOf(i));
+            Thread.sleep(100);
+        }
+//        return null;
+    }
+
+    @Override
+    protected void process(List<String> item) {
+        //This updates the UI
+//        textArea.append(item + "\n");
+           finalVerify();
+           
+           //put background task here
+    }
+   
+}
+
+
+
+}

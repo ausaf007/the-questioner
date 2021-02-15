@@ -1,0 +1,1119 @@
+/* 
+ * The MIT License
+ *
+ * Copyright 2021 Md Ausaf Rashid.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package thequestioner;
+
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
+
+import java.util.Properties;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingWorker;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.swing.JOptionPane;
+
+import static thequestioner.SignUp_Part1.signuppart1visible;
+import static thequestioner.Credential_Storage.*;
+
+
+/**
+ *
+ * @author Md Ausaf Rashid
+ */
+public class SignUp_Part2 extends javax.swing.JFrame {
+
+    
+    int xMouse;
+    int yMouse;
+    
+    public boolean EmailValidate(String email1) {
+
+        String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+
+        Boolean b = email1.matches(EMAIL_REGEX);
+            
+            if(email1.length()>40)
+                            b=false;
+        
+
+        return b;
+    }
+    public static boolean signuppart2visible=false;
+    
+    Color white=new Color(204,204,204);
+    
+    /**
+     * Creates new form SignUp_Part1
+     */
+    
+    public void finalVerify(){
+    
+        if(signuppart2visible){
+            this.setVisible(true);
+            signuppart2visible=false;
+        }
+        if(loading.isVisible()==true){
+            backlabel.setVisible(false);
+            Greeting_Label.setVisible(false);
+        }else{
+            backlabel.setVisible(true);
+            Greeting_Label.setVisible(true);
+        }
+        
+       
+      
+        
+         if(EmailValidate(NameInput.getText())&&(EmailAlreadyTakenLabel.isVisible()==false)){
+         
+           
+            
+            if(I_have_internet.isSelected()){
+                if(loading.isVisible()==false){
+                    EmailVerifierLabel.setVisible(true);
+                }else{
+                    EmailVerifierLabel.setVisible(false);
+                }
+                offline_next.setVisible(false);
+            }else{
+                //User doesn't has internet. Proceeding without email verification.
+                offline_next.setVisible(true);
+                EmailVerifierLabel.setVisible(false);
+            }
+            
+            
+            NameCheck=true;
+        }else{
+         EmailVerifierLabel.setVisible(false);
+         offline_next.setVisible(false);
+         NameCheck=false;
+        }
+      
+         
+   
+    }
+    
+   
+
+    
+    private boolean initialClickedNameInput=false;
+    
+    private boolean NameCheck=false;
+   
+   public static String recipient_email;
+   private String OTP;
+    
+   private Statement st = null;
+    private Connection conn = null;
+    private ResultSet rs = null;
+    
+void resetEverythingHere(){
+    
+    
+     initialClickedNameInput=false;
+     NameCheck=false;
+     st = null;
+     conn = null;
+     rs = null;
+}
+    
+    public SignUp_Part2() {
+        
+       
+
+        initComponents();
+        resetEverythingHere();
+       new Worker().execute(); //Background task to run finalVerify() started. 
+                               //Final verify checks if all fields are filled correctly and displays next button
+
+
+        
+        
+                     
+        loading.setVisible(false);                       
+        EmailVerifierLabel.setVisible(false);
+        EmailAlreadyTakenLabel.setVisible(false);
+        offline_next.setVisible(false);
+        setBackground(new Color(0,0,0,0));//makes jframe background invisible. 
+                                    
+                
+
+
+        
+        
+
+    
+    }
+    
+ 
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jDialog1 = new javax.swing.JDialog();
+        nextlabel = new javax.swing.JLabel();
+        OTPWarning = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        OTPInput = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Greeting_Label = new javax.swing.JLabel();
+        I_have_internet = new javax.swing.JCheckBox();
+        offline_next = new javax.swing.JLabel();
+        backlabel = new javax.swing.JLabel();
+        loading = new javax.swing.JLabel();
+        EmailAlreadyTakenLabel = new javax.swing.JLabel();
+        EmailVerifierLabel = new javax.swing.JLabel();
+        MinLabel = new javax.swing.JLabel();
+        ExitLabel = new javax.swing.JLabel();
+        NameWarning = new javax.swing.JLabel();
+        NameInput = new javax.swing.JTextField();
+        l3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jDialog1.setBackground(new java.awt.Color(0, 0, 0));
+        jDialog1.setMinimumSize(new java.awt.Dimension(297, 297));
+        jDialog1.setModal(true);
+        jDialog1.setUndecorated(true);
+        jDialog1.getContentPane().setLayout(null);
+        jDialog1.setLocationRelativeTo(null);
+
+        OTPInput.setText("");
+
+        nextlabel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        nextlabel.setForeground(new java.awt.Color(0, 0, 255));
+        nextlabel.setText("<html> <body> <u>Next>></u> </body> </html>");
+        nextlabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                nextlabelMouseReleased(evt);
+            }
+        });
+        jDialog1.getContentPane().add(nextlabel);
+        nextlabel.setBounds(220, 200, 60, 30);
+
+        OTPWarning.setBackground(Color.BLUE);
+        OTPWarning.setForeground(new java.awt.Color(255, 255, 255));
+        OTPWarning.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OTPWarning.setMaximumSize(new java.awt.Dimension(197, 14));
+        OTPWarning.setMinimumSize(new java.awt.Dimension(197, 14));
+        OTPWarning.setPreferredSize(new java.awt.Dimension(197, 14));
+        jDialog1.getContentPane().add(OTPWarning);
+        OTPWarning.setBounds(0, 190, 297, 14);
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText(recipient_email);
+        jDialog1.getContentPane().add(jLabel10);
+        jLabel10.setBounds(0, 90, 297, 27);
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("<html><u>Click here to re-enter details</u></html>");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.setMaximumSize(new java.awt.Dimension(260, 27));
+        jLabel11.setMinimumSize(new java.awt.Dimension(260, 27));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel11MouseReleased(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jLabel11);
+        jLabel11.setBounds(53, 260, 191, 27);
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("We have sent OTP to your Email:");
+        jLabel7.setMaximumSize(new java.awt.Dimension(160, 27));
+        jLabel7.setMinimumSize(new java.awt.Dimension(160, 27));
+        jDialog1.getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 60, 297, 27);
+
+        OTPInput.setBackground(new Color(0,0,0,0));
+        OTPInput.setForeground(new java.awt.Color(255, 255, 255));
+        OTPInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        OTPInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        OTPInput.setOpaque(false);
+        OTPInput.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                OTPInputCaretUpdate(evt);
+            }
+        });
+        OTPInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OTPInputActionPerformed(evt);
+            }
+        });
+        jDialog1.getContentPane().add(OTPInput);
+        OTPInput.setBounds(120, 150, 58, 30);
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Email Verification");
+        jDialog1.getContentPane().add(jLabel8);
+        jLabel8.setBounds(0, 30, 297, 30);
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText(" Please enter the OTP to verify your Email:");
+        jDialog1.getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 120, 297, 30);
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Filled wrong credentials? ");
+        jLabel12.setMaximumSize(new java.awt.Dimension(260, 27));
+        jLabel12.setMinimumSize(new java.awt.Dimension(260, 27));
+        jDialog1.getContentPane().add(jLabel12);
+        jLabel12.setBounds(0, 240, 297, 27);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/cropped_resized_gif.gif"))); // NOI18N
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+        jLabel4.setMaximumSize(new java.awt.Dimension(297, 349));
+        jLabel4.setMinimumSize(new java.awt.Dimension(297, 349));
+        jLabel4.setPreferredSize(new java.awt.Dimension(297, 297));
+        jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel4MouseDragged(evt);
+            }
+        });
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 297, 297);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(895, 645));
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeiconified(java.awt.event.WindowEvent evt) {
+                formWindowDeiconified(evt);
+            }
+        });
+        getContentPane().setLayout(null);
+
+        Greeting_Label.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
+        Greeting_Label.setForeground(new java.awt.Color(0, 0, 255));
+        Greeting_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Greeting_Label.setText("<html> <u>Sign In</u> </html>");
+        Greeting_Label.setToolTipText("");
+        Greeting_Label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Greeting_Label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Greeting_LabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(Greeting_Label);
+        Greeting_Label.setBounds(715, 87, 180, 23);
+
+        I_have_internet.setBackground(new java.awt.Color(0, 0, 0));
+        I_have_internet.setForeground(new java.awt.Color(204, 204, 204));
+        I_have_internet.setText("I have Internet Connection.");
+        I_have_internet.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                I_have_internetStateChanged(evt);
+            }
+        });
+        getContentPane().add(I_have_internet);
+        I_have_internet.setBounds(70, 470, 180, 23);
+
+        offline_next.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        offline_next.setForeground(Color.blue);
+        offline_next.setText("<html> <body> <u>Next>></u> </body> </html>");
+        offline_next.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        offline_next.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                offline_nextMouseReleased(evt);
+            }
+        });
+        getContentPane().add(offline_next);
+        offline_next.setBounds(340, 410, 60, 30);
+
+        backlabel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        backlabel.setForeground(new java.awt.Color(0, 0, 255));
+        backlabel.setText("<html><u>&lt&lt</u><u>back</u>"); // NOI18N
+        backlabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                backlabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(backlabel);
+        backlabel.setBounds(20, 120, 60, 30);
+
+        loading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/loading_4_small.gif"))); // NOI18N
+        loading.setText("jLabel3");
+        getContentPane().add(loading);
+        loading.setBounds(380, 210, 30, 30);
+
+        EmailAlreadyTakenLabel.setBackground(Color.BLUE);
+        EmailAlreadyTakenLabel.setForeground(new java.awt.Color(255, 0, 0));
+        EmailAlreadyTakenLabel.setText("Sorry, the email is already taken.");
+        EmailAlreadyTakenLabel.setMaximumSize(new java.awt.Dimension(197, 14));
+        EmailAlreadyTakenLabel.setMinimumSize(new java.awt.Dimension(197, 14));
+        EmailAlreadyTakenLabel.setPreferredSize(new java.awt.Dimension(197, 14));
+        EmailAlreadyTakenLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                EmailAlreadyTakenLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(EmailAlreadyTakenLabel);
+        EmailAlreadyTakenLabel.setBounds(180, 240, 230, 14);
+
+        EmailVerifierLabel.setBackground(Color.BLUE);
+        EmailVerifierLabel.setForeground(new java.awt.Color(0, 0, 255));
+        EmailVerifierLabel.setText("<html>\n<body>\n\n<u>Click here to verify Email</u>\n\n</body>\n</html>");
+        EmailVerifierLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EmailVerifierLabel.setMaximumSize(new java.awt.Dimension(197, 14));
+        EmailVerifierLabel.setMinimumSize(new java.awt.Dimension(197, 14));
+        EmailVerifierLabel.setPreferredSize(new java.awt.Dimension(197, 14));
+        EmailVerifierLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                EmailVerifierLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(EmailVerifierLabel);
+        EmailVerifierLabel.setBounds(180, 240, 150, 14);
+
+        MinLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MinLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/minbutton.png"))); // NOI18N
+        MinLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MinLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MinLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MinLabelMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MinLabelMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                MinLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(MinLabel);
+        MinLabel.setBounds(845, 5, 20, 20);
+
+        ExitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ExitLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/exitbutton.png"))); // NOI18N
+        ExitLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ExitLabelMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ExitLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(ExitLabel);
+        ExitLabel.setBounds(865, 5, 20, 20);
+
+        NameWarning.setForeground(new java.awt.Color(255, 255, 255));
+        NameWarning.setText(" ");
+        NameWarning.setMaximumSize(new java.awt.Dimension(197, 14));
+        NameWarning.setMinimumSize(new java.awt.Dimension(197, 14));
+        NameWarning.setPreferredSize(new java.awt.Dimension(197, 14));
+        getContentPane().add(NameWarning);
+        NameWarning.setBounds(180, 240, 100, 14);
+
+        NameInput.setBackground((new Color(0,0,0,0)));
+        NameInput.setForeground(white);
+        NameInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        NameInput.setBorder(javax.swing.BorderFactory.createLineBorder(white));
+        NameInput.setMaximumSize(new java.awt.Dimension(197, 20));
+        NameInput.setMinimumSize(new java.awt.Dimension(197, 20));
+        NameInput.setOpaque(false);
+        NameInput.setPreferredSize(new java.awt.Dimension(197, 20));
+        NameInput.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                NameInputCaretUpdate(evt);
+            }
+        });
+        NameInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NameInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                NameInputFocusLost(evt);
+            }
+        });
+        getContentPane().add(NameInput);
+        NameInput.setBounds(180, 210, 197, 30);
+
+        l3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        l3.setForeground(white);
+        l3.setText("Email:");
+        getContentPane().add(l3);
+        l3.setBounds(30, 210, 60, 30);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/imageedit_3_7186155792.gif"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(380, 120, 520, 410);
+
+        jLabel1.setBackground((new Color(0,0,0,0)));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thequestioner/final_background.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(895, 645));
+        jLabel1.setMinimumSize(new java.awt.Dimension(895, 645));
+        jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(895, 645));
+        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel1MouseDragged(evt);
+            }
+        });
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 895, 645);
+
+        setSize(new java.awt.Dimension(895, 645));
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
+        this.setLocation(evt.getXOnScreen() - xMouse, evt.getYOnScreen() - yMouse);           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseDragged
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        xMouse = evt.getX();        // TODO add your handling code here:
+        yMouse = evt.getY();         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void NameInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NameInputFocusLost
+       
+       initialClickedNameInput=true; //boolean variable to show that user has clicked on that component atleast once     
+       NameCheck=checkNameEnteredIsLegalAndShowWarning();  
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameInputFocusLost
+
+    private void NameInputCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_NameInputCaretUpdate
+             
+        EmailAlreadyTakenLabel.setVisible(false);
+        
+        if(initialClickedNameInput){            
+                NameCheck=checkNameEnteredIsLegalAndShowWarning();
+        }else{
+                NameCheck=checkNameEnteredIsLegal();
+        }
+        
+       
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameInputCaretUpdate
+
+    private void NameInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NameInputFocusGained
+
+        if(initialClickedNameInput==false){
+            NameInput.setText("");
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameInputFocusGained
+
+    private void ExitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseClicked
+      
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseClicked
+
+    private void MinLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseClicked
+           // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseClicked
+
+    private void formWindowDeiconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeiconified
+         FadeUtilityClass.fade(this, true);         // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowDeiconified
+
+    private void ExitLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseEntered
+        
+        ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exit_green.gif"));
+        ExitLabel.setIcon(II);
+            // TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseEntered
+
+    private void ExitLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseExited
+ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exitbutton.png"));
+        ExitLabel.setIcon(II);       
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseExited
+
+    private void ExitLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMousePressed
+              ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exit_darker_green.gif"));
+        ExitLabel.setIcon(II);  // TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMousePressed
+
+    private void ExitLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLabelMouseReleased
+       ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/exit_green.gif"));
+        ExitLabel.setIcon(II);
+        System.exit(0);
+// TODO add your handling code here:
+    }//GEN-LAST:event_ExitLabelMouseReleased
+
+    
+    
+    
+    
+    private void MinLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseEntered
+       ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/min_green.gif"));
+        MinLabel.setIcon(II); // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseEntered
+
+    private void MinLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseExited
+  ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/minbutton.png"));
+        MinLabel.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseExited
+
+    private void MinLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMousePressed
+      ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/min_darker_green.gif"));
+        MinLabel.setIcon(II);  // TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMousePressed
+
+    private void MinLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinLabelMouseReleased
+       ImageIcon II = new ImageIcon(getClass().getResource("/thequestioner/min_green.gif"));
+        MinLabel.setIcon(II); 
+ FadeUtilityClass.fade(this, false); 
+// TODO add your handling code here:
+    }//GEN-LAST:event_MinLabelMouseReleased
+
+
+    private void EmailVerifierLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmailVerifierLabelMouseReleased
+               
+        
+        
+        recipient_email=NameInput.getText();        
+        
+        start1(); //analogous to start, with more functions
+        
+        
+
+    }//GEN-LAST:event_EmailVerifierLabelMouseReleased
+
+public void showNetworkError(){
+    JOptionPane.showMessageDialog(null,"Network Error");
+}
+public void showNetworkError(String error){
+    JOptionPane.showMessageDialog(null,error);
+}
+void establishOfflineConnection(){
+       try{
+    Class.forName("com.mysql.jdbc.Driver");
+           conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+DB_NAME, DB_USERNAME, DB_PASSWORD);
+            
+            st=conn.createStatement();}catch(Exception e){}
+    }
+
+void closeConnection(){
+        try{
+            conn.close();
+            st.close();
+            rs.close();
+        }catch(Exception e){
+            //ignore
+        }
+    }    
+public void checkWhetherEmailIsNotTaken(String Email){
+    loading.setVisible(true);
+    boolean result=true;
+    establishOfflineConnection();
+    //logic to check if email is taken
+    try{
+    rs = st.executeQuery("SELECT * FROM UserInfoTable;");
+    String tempEmail;
+                    while (rs.next()) {
+                        tempEmail = rs.getString("Email");
+                        if (tempEmail.equals(recipient_email)) {
+                            result = false;
+                            
+                        }
+                        
+                        
+                    }
+                      if(result==true){
+                            OTPCreator();
+                            start();
+                            closeConnection();
+                      }else{
+                            EmailAlreadyTakenLabel.setVisible(true);
+                            loading.setVisible(false);
+                            closeConnection();
+                      }
+                    
+    }catch(Exception E){
+        showNetworkError();
+        loading.setVisible(false);
+        closeConnection();
+    }
+    closeConnection();
+    
+    
+    
+}
+
+public void checkWhetherEmailIsNotTaken_Without_OTP(String Email){
+    loading.setVisible(true);
+    boolean result=true;
+    establishOfflineConnection();
+    //logic to check if email is taken
+    try{
+        
+    rs = st.executeQuery("SELECT * FROM UserInfoTable;");
+    String tempEmail;
+                    while (rs.next()) {
+                        tempEmail = rs.getString("Email");
+                        if (tempEmail.equals(recipient_email)) {
+                            result = false;
+                            
+                        }
+                        
+                        
+                    }
+                      if(result==true){
+                            recipient_email=NameInput.getText(); 
+                            SignUp_Part3 obj=new SignUp_Part3();
+                            closeConnection();
+                            this.dispose();
+                            obj.setVisible(true); 
+                      }else{
+                            EmailAlreadyTakenLabel.setVisible(true);
+                            closeConnection();
+                      }
+                    
+    }catch(Exception E){
+        closeConnection();
+        showNetworkError();
+        
+    }
+    closeConnection();
+    
+    loading.setVisible(false);
+    
+}
+
+
+
+
+private void start() {
+  Thread worker = new Thread() {
+   public void run() {
+    try{sendEmail();}catch(Exception e){}
+    
+   }
+  };
+  
+  worker.start();
+ }
+    
+    private void start1() {
+  Thread worker = new Thread() {
+   public void run() {
+       
+       checkWhetherEmailIsNotTaken(recipient_email);
+
+   }
+  };
+  
+  worker.start();
+ }
+    private void start_offline() {
+  Thread worker = new Thread() {
+   public void run() {
+       
+       checkWhetherEmailIsNotTaken_Without_OTP(recipient_email);
+
+   }
+  };
+  
+  worker.start();
+ }
+    
+    int xMouse1, yMouse1;
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+ xMouse1 = evt.getX();        // TODO add your handling code here:
+         yMouse1 = evt.getY(); // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MousePressed
+
+    private void jLabel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseDragged
+ jDialog1.setLocation(evt.getXOnScreen() - xMouse1, evt.getYOnScreen() - yMouse1);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseDragged
+
+    private void nextlabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextlabelMouseReleased
+        
+        
+        if(OTP.equals(OTPInput.getText())){
+            OTPWarning.setText("");
+            this.dispose();
+            jDialog1.dispose();
+            SignUp_Part3 obj=new SignUp_Part3();
+            obj.setVisible(true);
+            
+            
+            
+        }else{
+            OTPWarning.setText("Wrong OTP. Please try again.");
+        }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextlabelMouseReleased
+
+    private void OTPInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OTPInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OTPInputActionPerformed
+
+    private void EmailAlreadyTakenLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmailAlreadyTakenLabelMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailAlreadyTakenLabelMouseReleased
+
+    private void jLabel11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseReleased
+            
+        
+        jDialog1.setVisible(false);
+        this.dispose();
+        SignUp_Part2 obj= new SignUp_Part2();
+        obj.setVisible(true);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseReleased
+
+    private void backlabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backlabelMouseReleased
+             signuppart1visible=true;
+                this.dispose();
+                
+// TODO add your handling code here:
+    }//GEN-LAST:event_backlabelMouseReleased
+
+    private void OTPInputCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_OTPInputCaretUpdate
+OTPWarning.setText("");
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OTPInputCaretUpdate
+
+    private void offline_nextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_offline_nextMouseReleased
+recipient_email=NameInput.getText(); 
+
+
+start_offline();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_offline_nextMouseReleased
+
+    private void I_have_internetStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_I_have_internetStateChanged
+NameInput.requestFocus();              // TODO add your handling code here:
+    }//GEN-LAST:event_I_have_internetStateChanged
+
+    private void Greeting_LabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Greeting_LabelMouseReleased
+
+        SignIn obj =new SignIn();
+        obj.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Greeting_LabelMouseReleased
+
+ 
+    
+    //Back label
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SignUp_Part2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+             
+            public void run() {
+               new SignUp_Part2().setVisible(true);   
+            }
+        });
+
+    }
+    
+  
+ 
+  
+
+    
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel EmailAlreadyTakenLabel;
+    private javax.swing.JLabel EmailVerifierLabel;
+    private javax.swing.JLabel ExitLabel;
+    private javax.swing.JLabel Greeting_Label;
+    private javax.swing.JCheckBox I_have_internet;
+    private javax.swing.JLabel MinLabel;
+    private javax.swing.JTextField NameInput;
+    private javax.swing.JLabel NameWarning;
+    private javax.swing.JTextField OTPInput;
+    private javax.swing.JLabel OTPWarning;
+    private javax.swing.JLabel backlabel;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel l3;
+    private javax.swing.JLabel loading;
+    private javax.swing.JLabel nextlabel;
+    private javax.swing.JLabel offline_next;
+    // End of variables declaration//GEN-END:variables
+
+
+
+
+
+public boolean checkNameEnteredIsLegalAndShowWarning(){
+
+    boolean result;
+    int NameLength=NameInput.getText().length();
+    
+    if(NameLength<3){
+        showLabelWarning(NameWarning, Color.RED, "Email is too short.",NameInput);
+        result=false;
+    }else if(NameLength>40){
+        showLabelWarning(NameWarning, Color.RED, "Email is too long.", NameInput);
+        result=false;
+    }else{
+        
+        showLabelWarning(NameWarning, white,"",NameInput);
+        result=true;
+    }
+    
+    return result;
+}
+
+public boolean checkNameEnteredIsLegal(){
+
+    boolean result;
+    int NameLength=NameInput.getText().length();
+    
+    if(NameLength<3){
+       result=false;
+       NameInput.setBorder(BorderFactory.createLineBorder(white));
+    }else if(NameLength>40){
+        result=false;
+        showLabelWarning(NameWarning, Color.RED, "Email is too long.",NameInput);
+    }else{
+        
+         showLabelWarning(NameWarning, white,"",NameInput);
+        result=true;
+    }
+    
+    return result;
+}
+
+public void showLabelWarning(JLabel label, Color color, String message, JTextField textfield){
+    label.setText(message);
+      label.setForeground(color);
+    textfield.setBorder(BorderFactory.createLineBorder(color));
+
+}
+
+public void showLabelWarning( Color color,  JComboBox jcombobox){
+    
+    jcombobox.setBorder(BorderFactory.createLineBorder(color));   
+    
+}
+
+public void showLabelWarning(JLabel label, Color color, String message){
+    label.setText(message);
+    label.setForeground(color);
+}
+
+
+
+void sendEmail() throws Exception{
+    loading.setVisible(true);
+    String SUBJECT="TheQuestioner-OTP Recieaved. Confirm Your Email.";
+    String BODY="Welcome to TheQuestioner!"
+                    + "\nYour OTP is:" + OTP + "\nUse this OTP to Confirm your Email on TheQuestioner"
+                    + "\n\nRegards,"
+                    + "\nTheQuestioner Team"
+                    + "\n\n"
+                    + "\n\n\n\nIgnore this Email if you didn't register here.";
+    
+    Properties props = System.getProperties();
+    	props.put("mail.transport.protocol", "smtp");
+    	props.put("mail.smtp.port", PORT); 
+    	props.put("mail.smtp.starttls.enable", "true");
+    	props.put("mail.smtp.auth", "true");
+
+    	Session session = Session.getDefaultInstance(props);
+        Transport transport=null;
+        
+        
+    	MimeMessage msg = new MimeMessage(session);
+        msg.setFrom(new InternetAddress(FROM_EMAIL,FROMNAME));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient_email));
+        msg.setSubject(SUBJECT);
+        msg.setText(BODY);
+        
+        // Add a configuration set header. Comment or delete the 
+        // next line if you are not using a configuration set
+        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
+            
+        // Create a transport.
+        transport = session.getTransport();
+                    
+        // Send the message.
+        try{
+            System.out.println("Sending...");
+            
+            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+        	
+            // Send the email.
+            transport.sendMessage(msg, msg.getAllRecipients());
+            System.out.println("Email sent!");
+            jDialog1.setVisible(true);
+            loading.setVisible(false);
+        }
+        catch (Exception ex) {
+            System.out.println("The email was not sent.");
+            System.out.println("Error message: " + ex.getMessage());
+            loading.setVisible(false);
+            showNetworkError(ex.getMessage());
+            
+        }
+        finally
+        {
+            // Close and terminate the connection.
+            transport.close();
+        }
+
+}
+
+public void OTPCreator(){
+    int a,b,c;
+    long currentDateMs = new java.util.Date().getTime();
+                        a = (int) (Math.random() * 10);
+                        if (a == 0) {
+                            a = 2;
+                        }
+                        b = (int) (Math.random() * 10);
+                        if (b == 0) {
+                            b = 3;
+                        }
+                        c = (int) (Math.random() * 10);
+                        if (c == 0) {
+                            c = 4;
+                        }
+                        String random = "" + currentDateMs;
+                        random = random.substring(random.length() - 5);
+                        long random1 = Integer.parseInt(random);
+                        random1 = random1 * a * b * c;
+                        OTP = "" + random1;
+                        System.out.println("OTP="+OTP);
+
+}
+public class Worker extends SwingWorker<String, String> {
+
+    @Override
+    protected String doInBackground() throws Exception {
+        //This is what's called in the .execute method
+        for(int i = 0; true; ){
+            //This sends the results to the .process method
+      publish(String.valueOf(i));
+            Thread.sleep(100);
+        }
+
+    }
+
+    @Override
+    protected void process(List<String> item) {
+        //This updates the UI
+
+           finalVerify();
+           
+           //put background task here
+    }
+   
+}
+
+}

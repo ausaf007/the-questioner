@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[895, 645]"/>
+    </Property>
+    <Property name="undecorated" type="boolean" value="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-123,0,0,3,127"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
+    <SyntheticProperty name="generateSize" type="boolean" value="true"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowDeiconified" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowDeiconified"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="true"/>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="Greeting_Label">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="22" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;u&gt;Sign In&lt;/u&gt; &lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Greeting_LabelMouseReleased"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="715" y="87" width="180" height="23"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="l7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="20" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Enter your details to sign up:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="40" y="150" width="290" height="50"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="MinLabel">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/thequestioner/minbutton.png"/>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MinLabelMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MinLabelMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MinLabelMouseExited"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MinLabelMousePressed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MinLabelMouseReleased"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="845" y="5" width="20" height="20"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ExitLabel">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/thequestioner/exitbutton.png"/>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExitLabelMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExitLabelMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExitLabelMouseExited"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExitLabelMousePressed"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ExitLabelMouseReleased"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="865" y="5" width="20" height="20"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nextlabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Color.blue" type="code"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;body&gt; &lt;u&gt;Next&gt;&gt;&lt;/u&gt; &lt;/body&gt; &lt;/html&gt;"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nextlabelMouseReleased"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="340" y="410" width="60" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="YearChooserComboBox">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Color(0,0,0,0)" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="115">
+            <StringItem index="0" value="1900"/>
+            <StringItem index="1" value="1901"/>
+            <StringItem index="2" value="1902"/>
+            <StringItem index="3" value="1903"/>
+            <StringItem index="4" value="1904"/>
+            <StringItem index="5" value="1905"/>
+            <StringItem index="6" value="1906"/>
+            <StringItem index="7" value="1907"/>
+            <StringItem index="8" value="1908"/>
+            <StringItem index="9" value="1909"/>
+            <StringItem index="10" value="1910"/>
+            <StringItem index="11" value="1911"/>
+            <StringItem index="12" value="1912"/>
+            <StringItem index="13" value="1913"/>
+            <StringItem index="14" value="1914"/>
+            <StringItem index="15" value="1915"/>
+            <StringItem index="16" value="1916"/>
+            <StringItem index="17" value="1917"/>
+            <StringItem index="18" value="1918"/>
+            <StringItem index="19" value="1919"/>
+            <StringItem index="20" value="1920"/>
+            <StringItem index="21" value="1921"/>
+            <StringItem index="22" value="1922"/>
+            <StringItem index="23" value="1923"/>
+            <StringItem index="24" value="1924"/>
+            <StringItem index="25" value="1925"/>
+            <StringItem index="26" value="1926"/>
+            <StringItem index="27" value="1927"/>
+            <StringItem index="28" value="1928"/>
+            <StringItem index="29" value="1929"/>
+            <StringItem index="30" value="1930"/>
+            <StringItem index="31" value="1931"/>
+            <StringItem index="32" value="1932"/>
+            <StringItem index="33" value="1933"/>
+            <StringItem index="34" value="1934"/>
+            <StringItem index="35" value="1935"/>
+            <StringItem index="36" value="1936"/>
+            <StringItem index="37" value="1937"/>
+            <StringItem index="38" value="1938"/>
+            <StringItem index="39" value="1939"/>
+            <StringItem index="40" value="1940"/>
+            <StringItem index="41" value="1941"/>
+            <StringItem index="42" value="1942"/>
+            <StringItem index="43" value="1943"/>
+            <StringItem index="44" value="1944"/>
+            <StringItem index="45" value="1945"/>
+            <StringItem index="46" value="1946"/>
+            <StringItem index="47" value="1947"/>
+            <StringItem index="48" value="1948"/>
+            <StringItem index="49" value="1949"/>
+            <StringItem index="50" value="1950"/>
+            <StringItem index="51" value="1951"/>
+            <StringItem index="52" value="1952"/>
+            <StringItem index="53" value="1953"/>
+            <StringItem index="54" value="1954"/>
+            <StringItem index="55" value="1955"/>
+            <StringItem index="56" value="1956"/>
+            <StringItem index="57" value="1957"/>
+            <StringItem index="58" value="1958"/>
+            <StringItem index="59" value="1959"/>
+            <StringItem index="60" value="1960"/>
+            <StringItem index="61" value="1961"/>
+            <StringItem index="62" value="1962"/>
+            <StringItem index="63" value="1963"/>
+            <StringItem index="64" value="1964"/>
+            <StringItem index="65" value="1965"/>
+            <StringItem index="66" value="1966"/>
+            <StringItem index="67" value="1967"/>
+            <StringItem index="68" value="1968"/>
+            <StringItem index="69" value="1969"/>
+            <StringItem index="70" value="1970"/>
+            <StringItem index="71" value="1971"/>
+            <StringItem index="72" value="1972"/>
+            <StringItem index="73" value="1973"/>
+            <StringItem index="74" value="1974"/>
+            <StringItem index="75" value="1975"/>
+            <StringItem index="76" value="1976"/>
+            <StringItem index="77" value="1977"/>
+            <StringItem index="78" value="1978"/>
+            <StringItem index="79" value="1979"/>
+            <StringItem index="80" value="1980"/>
+            <StringItem index="81" value="1981"/>
+            <StringItem index="82" value="1982"/>
+            <StringItem index="83" value="1983"/>
+            <StringItem index="84" value="1984"/>
+            <StringItem index="85" value="1985"/>
+            <StringItem index="86" value="1986"/>
+            <StringItem index="87" value="1987"/>
+            <StringItem index="88" value="1988"/>
+            <StringItem index="89" value="1989"/>
+            <StringItem index="90" value="1990"/>
+            <StringItem index="91" value="1991"/>
+            <StringItem index="92" value="1992"/>
+            <StringItem index="93" value="1993"/>
+            <StringItem index="94" value="1994"/>
+            <StringItem index="95" value="1995"/>
+            <StringItem index="96" value="1996"/>
+            <StringItem index="97" value="1997"/>
+            <StringItem index="98" value="1998"/>
+            <StringItem index="99" value="1999"/>
+            <StringItem index="100" value="2000"/>
+            <StringItem index="101" value="2001"/>
+            <StringItem index="102" value="2002"/>
+            <StringItem index="103" value="2003"/>
+            <StringItem index="104" value="2004"/>
+            <StringItem index="105" value="2005"/>
+            <StringItem index="106" value="2006"/>
+            <StringItem index="107" value="2007"/>
+            <StringItem index="108" value="2008"/>
+            <StringItem index="109" value="2009"/>
+            <StringItem index="110" value="2010"/>
+            <StringItem index="111" value="2011"/>
+            <StringItem index="112" value="2012"/>
+            <StringItem index="113" value="2013"/>
+            <StringItem index="114" value="2014"/>
+          </StringArray>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Connection PropertyName="color" code="white" type="code"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="YearChooserComboBoxItemStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="YearChooserComboBoxFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="YearChooserComboBoxFocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="YearChooserComboBox.setName(&quot;YearChooserComboBox&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="300" y="310" width="77" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="MonthChooserComboBox">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Color(0,0,0,0)" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="12">
+            <StringItem index="0" value="Jan"/>
+            <StringItem index="1" value="Feb"/>
+            <StringItem index="2" value="Mar"/>
+            <StringItem index="3" value="Apr"/>
+            <StringItem index="4" value="May"/>
+            <StringItem index="5" value="Jun"/>
+            <StringItem index="6" value="Jul"/>
+            <StringItem index="7" value="Aug"/>
+            <StringItem index="8" value="Sept"/>
+            <StringItem index="9" value="Oct"/>
+            <StringItem index="10" value="Nov"/>
+            <StringItem index="11" value="Dec"/>
+          </StringArray>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Connection PropertyName="color" code="white" type="code"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="MonthChooserComboBoxItemStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="MonthChooserComboBoxFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="MonthChooserComboBoxFocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="MonthChooserComboBox.setName(&quot;MonthChooserComboBox&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="235" y="310" width="60" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="DayChooserComboBox">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Color(0,0,0,0)" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="31">
+            <StringItem index="0" value="01"/>
+            <StringItem index="1" value="02"/>
+            <StringItem index="2" value="03"/>
+            <StringItem index="3" value="04"/>
+            <StringItem index="4" value="05"/>
+            <StringItem index="5" value="06"/>
+            <StringItem index="6" value="07"/>
+            <StringItem index="7" value="08"/>
+            <StringItem index="8" value="09"/>
+            <StringItem index="9" value="10"/>
+            <StringItem index="10" value="11"/>
+            <StringItem index="11" value="12"/>
+            <StringItem index="12" value="13"/>
+            <StringItem index="13" value="14"/>
+            <StringItem index="14" value="15"/>
+            <StringItem index="15" value="16"/>
+            <StringItem index="16" value="17"/>
+            <StringItem index="17" value="18"/>
+            <StringItem index="18" value="19"/>
+            <StringItem index="19" value="20"/>
+            <StringItem index="20" value="21"/>
+            <StringItem index="21" value="22"/>
+            <StringItem index="22" value="23"/>
+            <StringItem index="23" value="24"/>
+            <StringItem index="24" value="25"/>
+            <StringItem index="25" value="26"/>
+            <StringItem index="26" value="27"/>
+            <StringItem index="27" value="28"/>
+            <StringItem index="28" value="29"/>
+            <StringItem index="29" value="30"/>
+            <StringItem index="30" value="31"/>
+          </StringArray>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Connection PropertyName="color" code="white" type="code"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="DayChooserComboBoxItemStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="DayChooserComboBoxFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="DayChooserComboBoxFocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="DayChooserComboBox.setName(&quot;DayChooserComboBox&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="310" width="50" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="l4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Gender:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="260" width="70" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="NameWarning">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="240" width="197" height="14"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="l6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nationality:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="360" width="90" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="GenderWarning">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="290" width="197" height="14"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="NameInput">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="(new Color(0,0,0,0))" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Your name goes here."/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Connection PropertyName="color" code="white" type="code"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="NameInputCaretUpdate"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NameInputFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NameInputFocusLost"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="210" width="-1" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="l5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Date Of Birth:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="310" width="110" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="NationalityWarning">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="390" width="197" height="14"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="DOBWarning">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 14]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="340" width="197" height="14"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="NationalityChooserComboBox">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Color(0,0,0,0)" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="197">
+            <StringItem index="0" value="Afghanistan"/>
+            <StringItem index="1" value="Albania"/>
+            <StringItem index="2" value="Algeria"/>
+            <StringItem index="3" value="Andorra"/>
+            <StringItem index="4" value="Angola"/>
+            <StringItem index="5" value="Antigua and Barbuda"/>
+            <StringItem index="6" value="Argentina"/>
+            <StringItem index="7" value="Armenia"/>
+            <StringItem index="8" value="Australia"/>
+            <StringItem index="9" value="Austria"/>
+            <StringItem index="10" value="Azerbaijan"/>
+            <StringItem index="11" value="Bahamas"/>
+            <StringItem index="12" value="Bahrain"/>
+            <StringItem index="13" value="Bangladesh"/>
+            <StringItem index="14" value="Barbados"/>
+            <StringItem index="15" value="Belarus"/>
+            <StringItem index="16" value="Belgium"/>
+            <StringItem index="17" value="Belize"/>
+            <StringItem index="18" value="Benin"/>
+            <StringItem index="19" value="Bhutan"/>
+            <StringItem index="20" value="Bolivia"/>
+            <StringItem index="21" value="Bosnia and Herzegovina"/>
+            <StringItem index="22" value="Botswana"/>
+            <StringItem index="23" value="Brazil"/>
+            <StringItem index="24" value="Brunei"/>
+            <StringItem index="25" value="Bulgaria"/>
+            <StringItem index="26" value="Burkina Faso"/>
+            <StringItem index="27" value="Burundi"/>
+            <StringItem index="28" value="Cabo Verde"/>
+            <StringItem index="29" value="Cambodia"/>
+            <StringItem index="30" value="Cameroon"/>
+            <StringItem index="31" value="Canada"/>
+            <StringItem index="32" value="Central African Republic (CAR)"/>
+            <StringItem index="33" value="Chad"/>
+            <StringItem index="34" value="Chile"/>
+            <StringItem index="35" value="China"/>
+            <StringItem index="36" value="Colombia"/>
+            <StringItem index="37" value="Comoros"/>
+            <StringItem index="38" value="Democratic Republic of the Congo"/>
+            <StringItem index="39" value="Republic of the Congo"/>
+            <StringItem index="40" value="Costa Rica"/>
+            <StringItem index="41" value="Cote d&apos;Ivoire"/>
+            <StringItem index="42" value="Croatia"/>
+            <StringItem index="43" value="Cuba"/>
+            <StringItem index="44" value="Cyprus"/>
+            <StringItem index="45" value="Czech Republic"/>
+            <StringItem index="46" value="Denmark"/>
+            <StringItem index="47" value="Djibouti"/>
+            <StringItem index="48" value="Dominica"/>
+            <StringItem index="49" value="Dominican Republic"/>
+            <StringItem index="50" value="Ecuador"/>
+            <StringItem index="51" value="Egypt"/>
+            <StringItem index="52" value="El Salvador"/>
+            <StringItem index="53" value="Equatorial Guinea"/>
+            <StringItem index="54" value="Eritrea"/>
+            <StringItem index="55" value="Estonia"/>
+            <StringItem index="56" value="Ethiopia"/>
+            <StringItem index="57" value="Fiji"/>
+            <StringItem index="58" value="Finland"/>
+            <StringItem index="59" value="France"/>
+            <StringItem index="60" value="Gabon"/>
+            <StringItem index="61" value="Gambia"/>
+            <StringItem index="62" value="Georgia"/>
+            <StringItem index="63" value="Germany"/>
+            <StringItem index="64" value="Ghana"/>
+            <StringItem index="65" value="Greece"/>
+            <StringItem index="66" value="Grenada"/>
+            <StringItem index="67" value="Guatemala"/>
+            <StringItem index="68" value="Guinea"/>
+            <StringItem index="69" value="Guinea-Bissau"/>
+            <StringItem index="70" value="Guyana"/>
+            <StringItem index="71" value="Haiti"/>
+            <StringItem index="72" value="Honduras"/>
+            <StringItem index="73" value="Hungary"/>
+            <StringItem index="74" value="Iceland"/>
+            <StringItem index="75" value="India"/>
+            <StringItem index="76" value="Indonesia"/>
+            <StringItem index="77" value="Iran"/>
+            <StringItem index="78" value="Iraq"/>
+            <StringItem index="79" value="Ireland"/>
+            <StringItem index="80" value="Israel"/>
+            <StringItem index="81" value="Italy"/>
+            <StringItem index="82" value="Jamaica"/>
+            <StringItem index="83" value="Japan"/>
+            <StringItem index="84" value="Jordan"/>
+            <StringItem index="85" value="Kazakhstan"/>
+            <StringItem index="86" value="Kenya"/>
+            <StringItem index="87" value="Kiribati"/>
+            <StringItem index="88" value="Kosovo"/>
+            <StringItem index="89" value="Kuwait"/>
+            <StringItem index="90" value="Kyrgyzstan"/>
+            <StringItem index="91" value="Laos"/>
+            <StringItem index="92" value="Latvia"/>
+            <StringItem index="93" value="Lebanon"/>
+            <StringItem index="94" value="Lesotho"/>
+            <StringItem index="95" value="Liberia"/>
+            <StringItem index="96" value="Libya"/>
+            <StringItem index="97" value="Liechtenstein"/>
+            <StringItem index="98" value="Lithuania"/>
+            <StringItem index="99" value="Luxembourg"/>
+            <StringItem index="100" value="Macedonia (FYROM)"/>
+            <StringItem index="101" value="Madagascar"/>
+            <StringItem index="102" value="Malawi"/>
+            <StringItem index="103" value="Malaysia"/>
+            <StringItem index="104" value="Maldives"/>
+            <StringItem index="105" value="Mali"/>
+            <StringItem index="106" value="Malta"/>
+            <StringItem index="107" value="Marshall Islands"/>
+            <StringItem index="108" value="Mauritania"/>
+            <StringItem index="109" value="Mauritius"/>
+            <StringItem index="110" value="Mexico"/>
+            <StringItem index="111" value="Micronesia"/>
+            <StringItem index="112" value="Moldova"/>
+            <StringItem index="113" value="Monaco"/>
+            <StringItem index="114" value="Mongolia"/>
+            <StringItem index="115" value="Montenegro"/>
+            <StringItem index="116" value="Morocco"/>
+            <StringItem index="117" value="Mozambique"/>
+            <StringItem index="118" value="Myanmar (Burma)"/>
+            <StringItem index="119" value="Namibia"/>
+            <StringItem index="120" value="Nauru"/>
+            <StringItem index="121" value="Nepal"/>
+            <StringItem index="122" value="Netherlands"/>
+            <StringItem index="123" value="New Zealand"/>
+            <StringItem index="124" value="Nicaragua"/>
+            <StringItem index="125" value="Niger"/>
+            <StringItem index="126" value="Nigeria"/>
+            <StringItem index="127" value="North Korea"/>
+            <StringItem index="128" value="Norway"/>
+            <StringItem index="129" value="Oman"/>
+            <StringItem index="130" value="Pakistan"/>
+            <StringItem index="131" value="Palau"/>
+            <StringItem index="132" value="Palestine"/>
+            <StringItem index="133" value="Panama"/>
+            <StringItem index="134" value="Papua New Guinea"/>
+            <StringItem index="135" value="Paraguay"/>
+            <StringItem index="136" value="Peru"/>
+            <StringItem index="137" value="Philippines"/>
+            <StringItem index="138" value="Poland"/>
+            <StringItem index="139" value="Portugal"/>
+            <StringItem index="140" value="Qatar"/>
+            <StringItem index="141" value="Romania"/>
+            <StringItem index="142" value="Russia"/>
+            <StringItem index="143" value="Rwanda"/>
+            <StringItem index="144" value="Saint Kitts and Nevis"/>
+            <StringItem index="145" value="Saint Lucia"/>
+            <StringItem index="146" value="Saint Vincent and the Grenadines"/>
+            <StringItem index="147" value="Samoa"/>
+            <StringItem index="148" value="San Marino"/>
+            <StringItem index="149" value="Sao Tome and Principe"/>
+            <StringItem index="150" value="Saudi Arabia"/>
+            <StringItem index="151" value="Senegal"/>
+            <StringItem index="152" value="Serbia"/>
+            <StringItem index="153" value="Seychelles"/>
+            <StringItem index="154" value="Sierra Leone"/>
+            <StringItem index="155" value="Singapore"/>
+            <StringItem index="156" value="Slovakia"/>
+            <StringItem index="157" value="Slovenia"/>
+            <StringItem index="158" value="Solomon Islands"/>
+            <StringItem index="159" value="Somalia"/>
+            <StringItem index="160" value="South Africa"/>
+            <StringItem index="161" value="South Korea"/>
+            <StringItem index="162" value="South Sudan"/>
+            <StringItem index="163" value="Spain"/>
+            <StringItem index="164" value="Sri Lanka"/>
+            <StringItem index="165" value="Sudan"/>
+            <StringItem index="166" value="Suriname"/>
+            <StringItem index="167" value="Swaziland"/>
+            <StringItem index="168" value="Sweden"/>
+            <StringItem index="169" value="Switzerland"/>
+            <StringItem index="170" value="Syria"/>
+            <StringItem index="171" value="Taiwan"/>
+            <StringItem index="172" value="Tajikistan"/>
+            <StringItem index="173" value="Tanzania"/>
+            <StringItem index="174" value="Thailand"/>
+            <StringItem index="175" value="Timor-Leste"/>
+            <StringItem index="176" value="Togo"/>
+            <StringItem index="177" value="Tonga"/>
+            <StringItem index="178" value="Trinidad and Tobago"/>
+            <StringItem index="179" value="Tunisia"/>
+            <StringItem index="180" value="Turkey"/>
+            <StringItem index="181" value="Turkmenistan"/>
+            <StringItem index="182" value="Tuvalu"/>
+            <StringItem index="183" value="Uganda"/>
+            <StringItem index="184" value="Ukraine"/>
+            <StringItem index="185" value="United Arab Emirates (UAE)"/>
+            <StringItem index="186" value="United Kingdom (UK)"/>
+            <StringItem index="187" value="United States of America (USA)"/>
+            <StringItem index="188" value="Uruguay"/>
+            <StringItem index="189" value="Uzbekistan"/>
+            <StringItem index="190" value="Vanuatu"/>
+            <StringItem index="191" value="Vatican City (Holy See)"/>
+            <StringItem index="192" value="Venezuela"/>
+            <StringItem index="193" value="Vietnam"/>
+            <StringItem index="194" value="Yemen"/>
+            <StringItem index="195" value="Zambia"/>
+            <StringItem index="196" value="Zimbabwe"/>
+          </StringArray>
+        </Property>
+        <Property name="selectedIndex" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="0" type="code"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Connection PropertyName="color" code="white" type="code"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="NationalityChooserComboBoxItemStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NationalityChooserComboBoxFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NationalityChooserComboBoxFocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="360" width="-1" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="l3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Name:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="210" width="60" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="GenderChooserComboBox">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new Color(0,0,0,0)" type="code"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="white" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Male "/>
+            <StringItem index="1" value="Female"/>
+            <StringItem index="2" value="Other"/>
+          </StringArray>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Connection PropertyName="color" code="white" type="code"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[197, 20]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="GenderChooserComboBoxItemStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="GenderChooserComboBoxFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="GenderChooserComboBoxFocusLost"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="HOMEPAGE_jComboBox1"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="180" y="260" width="-1" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/thequestioner/imageedit_3_7186155792.gif"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="380" y="120" width="520" height="410"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="(new Color(0,0,0,0))" type="code"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/thequestioner/final_background.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[895, 645]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[895, 645]"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="true"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[895, 645]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseDragged"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MousePressed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="895" height="645"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+  </SubComponents>
+</Form>

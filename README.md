@@ -1,9 +1,15 @@
 # TheQuestioner
 TheQuestioner is a surveying software built using Java Swing framework and MySQL RDBMS.
 
-[![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner)](https://github.com/ausaf007/TheQuestioner/issues)
-[![GitHub license](https://img.shields.io/github/license/ausaf007/TheQuestioner)](https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
+[![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner?style=flat-square)](https://github.com/ausaf007/TheQuestioner/issues)
+[![GitHub license](https://img.shields.io/github/license/ausaf007/TheQuestioner?style=flat-square)](https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)]()
+
+## Tech Stack
+
+[![](https://img.shields.io/badge/Made_with-Java-red?style=for-the-badge&logo=Java)](https://www.java.com/)
+[![](https://img.shields.io/badge/Made_with-MySQL-orange?style=for-the-badge&logo=MySQL)](https://www.mysql.com/)
+[![](https://img.shields.io/badge/Made_with-Swing%20Framework-red?style=for-the-badge&logo=Java)](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
 
 ## Prerequisites
 

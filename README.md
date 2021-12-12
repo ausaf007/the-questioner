@@ -1,9 +1,9 @@
 <h1>Welcome to The Questioner 👋</h1>
 <p align="center">
   
-[![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner?style=flat-square)](https://github.com/ausaf007/TheQuestioner/issues)
-[![GitHub license](https://img.shields.io/github/license/ausaf007/TheQuestioner?style=flat-square)](https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)]()
+[![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner?style=for-the-badge)](https://github.com/ausaf007/TheQuestioner/issues)
+[![GitHub license](https://img.shields.io/github/license/ausaf007/TheQuestioner?style=for-the-badge)](https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)]()
 
 </p>
 

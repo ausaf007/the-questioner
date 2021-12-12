@@ -9,6 +9,18 @@
 
 TheQuestioner is a surveying software built using Java Swing framework and MySQL RDBMS.
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ul>
+    <li><a href="#tech-stack">Tech Stack</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#development-setup">Development Setup</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#license">License</a></li>
+  </ul>
+</details>
+
 ## Tech Stack
 
 [![](https://img.shields.io/badge/Made_with-Java-red?style=for-the-badge&logo=Java)](https://www.java.com/)
@@ -22,7 +34,7 @@ Install and configure [MySQL 5.7 server](https://dev.mysql.com/downloads/mysql/5
 Install [Netbeans 8.2](https://netbeans.org/downloads/old/8.2/) and JAVA SE 8.
 You can download [JRE 1.8](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) & [JDK 1.8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) here.
 
-## Development setup
+## Development Setup
 
 Download the code as zip file and save it in your preferred location.
 Launch NetBeans and go to *File->Import Project->From ZIP* and choose the downloaded zip file.

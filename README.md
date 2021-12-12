@@ -1,6 +1,10 @@
 # TheQuestioner
 TheQuestioner is a surveying software built using Java Swing framework and MySQL RDBMS.
 
+[![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner)](https://github.com/ausaf007/TheQuestioner/issues)
+[![GitHub license](https://img.shields.io/github/license/ausaf007/TheQuestioner)](https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
+
 ## Prerequisites
 
 Install and configure [MySQL 5.7 server](https://dev.mysql.com/downloads/mysql/5.7.html) on your local machine. Also create an empty database named "the_questioner_db" & take a note of your MySQL username, password & database name.

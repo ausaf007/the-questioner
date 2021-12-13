@@ -1,16 +1,29 @@
-<h1>Welcome to The Questioner 👋</h1>
+<h1 align="center">Welcome to The Questioner 👋</h1>
 <p align="center">
   
-[![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner?style=for-the-badge)](https://github.com/ausaf007/TheQuestioner/issues)
+  <a aria-label="GitHub issues" href="https://github.com/ausaf007/TheQuestioner/issues" target="_blank">
+    <img src="https://img.shields.io/github/issues/ausaf007/TheQuestioner?style=for-the-badge" />
+  </a>
+  <a aria-label="GitHub license" href="https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE" target="_blank">
+    <img src="https://img.shields.io/github/license/ausaf007/TheQuestioner?style=for-the-badge" />
+  </a>
+  <a aria-label="Build Status" target="_blank">
+    <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" />
+  </a>
+  <a aria-label="linkedin-shield" href="https://www.linkedin.com/in/md-ausaf-rashid/" target="_blank">
+    <img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" />
+  </a>
+  
+<!-- [![GitHub issues](https://img.shields.io/github/issues/ausaf007/TheQuestioner?style=for-the-badge)](https://github.com/ausaf007/TheQuestioner/issues)
 [![GitHub license](https://img.shields.io/github/license/ausaf007/TheQuestioner?style=for-the-badge)](https://github.com/ausaf007/TheQuestioner/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)]()
-
+ -->
 </p>
 
 TheQuestioner is a surveying software built using Java Swing framework and MySQL RDBMS.
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<details open>
   <summary>Table of Contents</summary>
   <ul>
     <li><a href="#tech-stack">Tech Stack</a></li>

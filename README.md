@@ -36,9 +36,9 @@ TheQuestioner is a surveying software built using Java Swing framework and MySQL
 
 ## Tech Stack
 
-[![](https://img.shields.io/badge/Made_with-Java-red?style=for-the-badge&logo=Java)](https://www.java.com/)
-[![](https://img.shields.io/badge/Made_with-MySQL-orange?style=for-the-badge&logo=MySQL)](https://www.mysql.com/)
-[![](https://img.shields.io/badge/Made_with-Swing%20Framework-red?style=for-the-badge&logo=Java)](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
+[![](https://img.shields.io/badge/Built_with-Java-red?style=for-the-badge&logo=Java)](https://www.java.com/)
+[![](https://img.shields.io/badge/Built_with-MySQL-orange?style=for-the-badge&logo=MySQL)](https://www.mysql.com/)
+[![](https://img.shields.io/badge/Built_with-Swing%20Framework-red?style=for-the-badge&logo=Java)](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
 
 ## Prerequisites
 

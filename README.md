@@ -20,7 +20,7 @@
  -->
 </p>
 
-TheQuestioner is a surveying software built using Java Swing framework and MySQL RDBMS.
+<h3 align="center">A surveying software built using Java Swing framework and MySQL RDBMS.</h3>
 
 <!-- TABLE OF CONTENTS -->
 <details open>
@@ -73,7 +73,17 @@ Also, you can check out the Screenshots folder to have a look at the User Interf
 Open conf.properties file and enter the MySQL credentials & database name.
 Also enter the SMTP Server Credentials, if you wish to use Email OTP verification functionality of this software.
 
+## Screenshots
+![Preview](./Screenshots/SignUp_Part1.png)
+![Preview](./Screenshots/SignUp_Part2a.png)
+![Preview](./Screenshots/SignUp_Part2b.png)
+![Preview](./Screenshots/SignUp_Part3a.png)
+![Preview](./Screenshots/UI_0.png)
+![Preview](./Screenshots/UI_1.png)
+![Preview](./Screenshots/UI_2.png)
+![Preview](./Screenshots/UI_3.png)
+![Preview](./Screenshots/UI_4.png)
+![Preview](./Screenshots/UI_5.png)
 
 ## License
 Code released under [MIT License.](https://choosealicense.com/licenses/mit/)
-
